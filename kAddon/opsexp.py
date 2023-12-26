@@ -27,7 +27,6 @@ class ExpressionNodeOperator(bpy.types.Operator):
         left_node = self.create_nodes(value.left, [location[0]-self.space_x, location[1]+self.space_y])
         right_node = self.create_nodes(value.right, [location[0]-self.space_x, location[1]-self.space_y])
         node = self.add_node("ShaderNodeMath")
-        print(node.location)
         self.operator_node_list.append(node)
         self.node_tree.links.new(node.inputs[0], left_node.outputs[0])
         self.node_tree.links.new(node.inputs[1], right_node.outputs[0])
